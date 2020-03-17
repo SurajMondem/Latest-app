@@ -116,6 +116,6 @@ class DataContainers extends Component{
             </React.Fragment>
         )
     }
-};
+}
 
 export default DataContainers;

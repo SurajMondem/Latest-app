@@ -33,3 +33,10 @@
     box-sizing: border-box;
     width: 100%;
 }
+
+.datatable-container {
+    display: block;
+    position: relative;
+    padding: 50px;
+    text-align: center;
+}

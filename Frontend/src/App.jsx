@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import {Grid, Paper, Typography} from '@material-ui/core';
+import { Alert, AlertTitle } from '@material-ui/lab';
 
 import './App.css';
-import DataContainer from "./Components/DataContainers";
+import DataContainer from "./Components/SummaryData/DataContainers";
+import DataTable from "./Components/DataTable/dataTable";
 
 
 
@@ -18,11 +20,22 @@ class App extends Component {
                     <Typography variant={"h5"}> Covid-19 Cases in world </Typography>
                   </Paper>
               </Grid>
+                <div style={{width: "80%", alignContent: "center", padding: "25px"}}>
+                    <Alert severity="error">
+                        <AlertTitle>Slow?</AlertTitle>
+                        There may be intermittent outage due to the high number
+                        of users. We are giving our best to keep up with this
+                        high demand. Sorry for Inconvenience.
+                    </Alert>
+                </div>
               <Grid container item xs={10} justify={"center"} style={{margin: "20px", textAlign: "center", backgroundColor: "white"}} >
                 <DataContainer/>
               </Grid>
             </Grid>
           </Grid>
+            <div className={"datatable-container"}>
+               <DataTable/>
+            </div>
           <div className={"footer"}>
             <div className={"footer-content"}>
               <div className={"footer-title"}>DISCLAIMER</div>
