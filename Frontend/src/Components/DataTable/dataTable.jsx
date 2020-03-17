@@ -29,10 +29,24 @@ const rows = [
 
 class dataTable extends Component {
 
+    constructor(props){
+        super(props);
+        this.onSort=this.onSort.bind(this);
+    }
+
     state = {
         loading: true,
         content: []
     };
+
+
+    onSort(event, sortKey){
+
+        const data = this.state.content;
+        console.log(sortKey + ":SortKey");
+        data.sort((a,b) => a[sortKey].toString().localeCompare(b[sortKey]).toString());
+        this.setState({data});
+    }
 
     async componentDidMount() {
         const url = "https://coronavirus.m.pipedream.net/csse_covid_19_data/csse_covid_19_daily_reports";
@@ -48,6 +62,10 @@ class dataTable extends Component {
             {
                 //console.log("Not Matched:" + data.rawData[i]["Country/Region"]);
                 Names.push(data.rawData[i]["Country/Region"]);
+                let date = data.rawData[i]['Last Update'].split("T")[0];
+                let time = data.rawData[i]['Last Update'].split("T")[1];
+                data.rawData[i]['Last Update Date'] = date;
+                data.rawData[i]['Last Update Time'] = time;
                 uniqueData.push(data.rawData[i]);
             }
             else {
@@ -82,10 +100,9 @@ class dataTable extends Component {
         // }
         // console.log(result);
         console.log(uniqueData);
+
         this.setState({ content: uniqueData, loading: false });
     }
-
-
 
 
     render() {
@@ -100,10 +117,11 @@ class dataTable extends Component {
                         <TableHead>
                             <TableRow>
                                 <TableCell>Country</TableCell>
-                                <TableCell align="right">Confirmed</TableCell>
-                                <TableCell align="right">Deaths</TableCell>
-                                <TableCell align="right">Recovered</TableCell>
-                                <TableCell align="right">Last Updated</TableCell>
+                                <TableCell align="right" onClick={e => this.onSort(e, 'Confirmed')}>Confirmed</TableCell>
+                                <TableCell align="right" onClick={e => this.onSort(e, 'Deaths')}>Deaths</TableCell>
+                                <TableCell align="right" onClick={e => this.onSort(e, 'Recovered')}>Recovered</TableCell>
+                                <TableCell align="right">Last Updated Date</TableCell>
+                                <TableCell align="right">Last Updated Time</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -115,7 +133,8 @@ class dataTable extends Component {
                                     <TableCell align="right">{row["Confirmed"]}</TableCell>
                                     <TableCell id={"deaths"} align="right">{row["Deaths"]}</TableCell>
                                     <TableCell id={"recovered"} align="right">{row["Recovered"]}</TableCell>
-                                    <TableCell align="right">{row["Last Update"]}</TableCell>
+                                    <TableCell align="right">{row["Last Update Date"]}</TableCell>
+                                    <TableCell align="right">{row["Last Update Time"]}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

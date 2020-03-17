@@ -37,6 +37,17 @@
 .datatable-container {
     display: block;
     position: relative;
-    padding: 50px;
+    padding: 20px;
     text-align: center;
+}
+
+.datatable-title {
+    display: block;
+    padding-top: 20px;
+    text-align: center;
+    font-family: Roboto,sans-serif;
+}
+
+.datatable-header {
+    margin: 0;
 }

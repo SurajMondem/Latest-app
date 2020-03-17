@@ -1,7 +1,7 @@
 .datatable-table {
     display: inline-block;
     padding: 20px;
-    width: 90%;
+    /*width: 90%;*/
     border-radius: 40px;
 }
 
@@ -12,6 +12,7 @@ div .datatable {
     -5px -5px 15px #ffffff;
     font-family: Roboto,sans-serif;
     font-size: 30px;
+    overflow:;
 }
 
 div #deaths {

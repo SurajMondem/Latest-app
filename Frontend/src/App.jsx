@@ -17,10 +17,10 @@ class App extends Component {
             <Grid item xs={12} container spacing={0} justify={"center"}>
               <Grid item xs={12} style={{backgroundColor: "#212529"}}>
                   <Paper style={{ padding: "15px",width: "100%", textAlign: "center",backgroundColor: "#212529", color: "white", margin: "0", boxShadow: "3px 3px 9px rgba(0,0,0,0.3)"}}>
-                    <Typography variant={"h5"}> Covid-19 Cases in world </Typography>
+                    <Typography variant={"h5"}> Corona Virus (Covid-19) Outbreak of World </Typography>
                   </Paper>
               </Grid>
-                <div style={{width: "80%", alignContent: "center", padding: "25px"}}>
+                <div style={{width: "100%", alignContent: "center", padding: "20px"}}>
                     <Alert severity="error">
                         <AlertTitle>Slow?</AlertTitle>
                         There may be intermittent outage due to the high number
@@ -33,9 +33,14 @@ class App extends Component {
               </Grid>
             </Grid>
           </Grid>
-            <div className={"datatable-container"}>
-               <DataTable/>
+            <div className={"datatable-title"}>
+                <h2 className={"datatable-header"}>
+                    Confirmed Cases and Deaths by Country, Territory
+                </h2>
             </div>
+          <div className={"datatable-container"}>
+            <DataTable/>
+          </div>
           <div className={"footer"}>
             <div className={"footer-content"}>
               <div className={"footer-title"}>DISCLAIMER</div>
