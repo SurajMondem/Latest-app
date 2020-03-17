@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Paper, Typography, Grid} from "@material-ui/core";
+import './DataContainers.css';
 
 class DataContainers extends Component{
 
@@ -16,82 +17,102 @@ class DataContainers extends Component{
     }
 
     render() {
-        var region = ["global", "china", "nonChina"];
-
         if (this.state.loading) return <div>Loading...</div>;
-        if (this.state.loading) return <div>didn't get a person</div>;
+        if (this.state.loading) return <div>didn't get the Data</div>;
 
-        //console.log(content.global.confirmed);
+        console.log(this.state.content.global);
         return (
             <React.Fragment>
-                {/*Global Data*/}
-                <Grid item xs={2}>
-                    <Typography variant={"h5"}>Global</Typography>
-                </Grid>
-                <Grid item xs={3}>
-                    <Paper elevation={2} style={{padding: '15px'}}>
-                        <Typography variant={"subtitle1"}>Confirmed</Typography>
-                        <Typography variant={"subtitle2"}>{this.state.content.global.confirmed}</Typography>
-                    </Paper>
-                </Grid>
-                <Grid item xs={3}>
-                    <Paper elevation={2} style={{padding: '15px', backgroundColor: "green"}}>
-                        <Typography variant={"subtitle1"}>Recovered</Typography>
-                        <Typography variant={"subtitle2"}>{this.state.content.global.recovered}</Typography>
-                    </Paper>
-                </Grid>
-                <Grid item xs={3}>
-                    <Paper elevation={2} style={{padding: '15px', backgroundColor: "red"} }>
-                        <Typography variant={"subtitle1"}>Deaths</Typography>
-                        <Typography variant={"subtitle2"}>{this.state.content.global.deaths}</Typography>
-                    </Paper>
-                </Grid>
-
-                {/*China Data*/}
-                <Grid item xs={2}>
-                    <Typography variant={"h5"}>China</Typography>
-                </Grid>
-                <Grid item xs={3}>
-                    <Paper elevation={2} style={{padding: '15px'}}>
-                        <Typography variant={"subtitle1"}>Confirmed</Typography>
-                        <Typography variant={"subtitle2"}>{this.state.content.china.confirmed}</Typography>
-                    </Paper>
-                </Grid>
-                <Grid item xs={3}>
-                    <Paper elevation={2} style={{padding: '15px', backgroundColor: "green"}}>
-                        <Typography variant={"subtitle1"}>Recovered</Typography>
-                        <Typography variant={"subtitle2"}>{this.state.content.china.recovered}</Typography>
-                    </Paper>
-                </Grid>
-                <Grid item xs={3}>
-                    <Paper elevation={2} style={{padding: '15px', backgroundColor: "red"} }>
-                        <Typography variant={"subtitle1"}>Deaths</Typography>
-                        <Typography variant={"subtitle2"}>{this.state.content.china.deaths}</Typography>
-                    </Paper>
-                </Grid>
-
-                {/*Non-China Data*/}
-                <Grid item xs={2}>
-                    <Typography variant={"h5"}>Non-China</Typography>
-                </Grid>
-                <Grid item xs={3}>
-                    <Paper elevation={2} style={{padding: '15px'}}>
-                        <Typography variant={"subtitle1"}>Confirmed</Typography>
-                        <Typography variant={"subtitle2"}>{this.state.content.nonChina.confirmed}</Typography>
-                    </Paper>
-                </Grid>
-                <Grid item xs={3}>
-                    <Paper elevation={2} style={{padding: '15px', backgroundColor: "green"}}>
-                        <Typography variant={"subtitle1"}>Recovered</Typography>
-                        <Typography variant={"subtitle2"}>{this.state.content.nonChina.recovered}</Typography>
-                    </Paper>
-                </Grid>
-                <Grid item xs={3}>
-                    <Paper elevation={2} style={{padding: '15px', backgroundColor: "red"} }>
-                        <Typography variant={"subtitle1"}>Deaths</Typography>
-                        <Typography variant={"subtitle2"}>{this.state.content.nonChina.deaths}</Typography>
-                    </Paper>
-                </Grid>
+                {/*GLOBAL DATA*/}
+                <div className={"box-container"}>
+                    <div className={"title-container"}>
+                        <div className={"title"}>GLOBAL</div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Confirmed</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"confirmed"}>
+                                {this.state.content.global.confirmed}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Recovered</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"recovered"}>
+                                {this.state.content.global.recovered}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Deaths</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"deaths"}>
+                                {this.state.content.global.deaths}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/*CHINA DATA*/}
+                <div className={"box-container"}>
+                    <div className={"title-container"}>
+                        <div className={"title"}>CHINA</div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Confirmed</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"confirmed"}>
+                                {this.state.content.china.confirmed}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Recovered</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"recovered"}>
+                                {this.state.content.china.recovered}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Deaths</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"deaths"}>
+                                {this.state.content.china.deaths}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/*NON-CHINA DATA*/}
+                <div className={"box-container"}>
+                    <div className={"title-container"}>
+                        <div className={"title"}>NON-CHINA</div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Confirmed</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"confirmed"}>
+                                {this.state.content.nonChina.confirmed}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Recovered</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"recovered"}>
+                                {this.state.content.nonChina.recovered}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Deaths</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"deaths"}>
+                                {this.state.content.nonChina.deaths}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </React.Fragment>
         )
     }
