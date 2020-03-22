@@ -6,6 +6,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import './dataTable.css';
 
@@ -18,7 +19,8 @@ class dataTable extends Component {
 
     state = {
         loading: true,
-        content: []
+        content: [],
+        daily: []
     };
 
     async componentDidMount() {
@@ -33,7 +35,7 @@ class dataTable extends Component {
             let date = data[i].dateAsOf.split("T")[0];
             let time = data[i].dateAsOf.split("T")[1];
             data[i].dateAsOf = date;
-            data[i].timeAsOf = time;
+            data[i].timeAsOf = time.substring(0,5);
             uniqueData.push(data[i]);
         }
 
@@ -43,10 +45,11 @@ class dataTable extends Component {
     }
 
 
+
     render() {
 
-        if (this.state.loading) return <div>Loading...</div>;
-        if (this.state.loading) return <div>didn't get the Data</div>;
+        if (this.state.loading) return <CircularProgress color="secondary" />;
+        if (this.state.loading) return <CircularProgress color="secondary" />;
         console.log(this.state.content[1].countryName);
         return (
             <div className={"datatable-table"}>
@@ -55,11 +58,11 @@ class dataTable extends Component {
                         <TableHead>
                             <TableRow>
                                 <TableCell>Country</TableCell>
-                                <TableCell align="right">Confirmed</TableCell>
-                                <TableCell align="right">Deaths</TableCell>
-                                <TableCell align="right">Recovered</TableCell>
+                                <TableCell align="center">Confirmed</TableCell>
+                                <TableCell align="center">Deaths</TableCell>
+                                <TableCell align="center">Recovered</TableCell>
                                 <TableCell align="right">Last Updated Date</TableCell>
-                                <TableCell align="right">Last Updated Time</TableCell>
+                                <TableCell align="left">Time (GMT)</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -68,11 +71,11 @@ class dataTable extends Component {
                                     <TableCell component="th" scope="row">
                                         {row.countryName}
                                     </TableCell>
-                                    <TableCell align="right">{row["confirmed"]}</TableCell>
-                                    <TableCell id={"deaths"} align="right">{row["deaths"]}</TableCell>
-                                    <TableCell id={"recovered"} align="right">{row["recovered"]}</TableCell>
+                                    <TableCell align="center">{row["confirmed"]}</TableCell>
+                                    <TableCell id={"deaths"} align="center">{row["deaths"]}</TableCell>
+                                    <TableCell id={"recovered"} align="center">{row["recovered"]}</TableCell>
                                     <TableCell align="right">{row["dateAsOf"]}</TableCell>
-                                    <TableCell align="right">{row["timeAsOf"]}</TableCell>
+                                    <TableCell align="left">{row["timeAsOf"]}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>

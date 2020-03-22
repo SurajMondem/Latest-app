@@ -1,17 +1,46 @@
-.datatable-table {
-    display: inline-block;
-    padding: 20px;
-    /*width: 90%;*/
-    border-radius: 40px;
+@media (max-width:500px) {
+    .datatable-table {
+        display: inline-block;
+        padding: 20px;
+        /*width: 90%;*/
+        border-radius: 40px;
+    }
+
+    div .datatable {
+        border-radius: 40px;
+        padding: 20px;
+        box-shadow:  5px 5px 15px #d9d9d9,
+        -5px -5px 15px #ffffff;
+        font-family: Roboto,sans-serif;
+        font-size: 30px;
+        font-weight: 900;
+        /*font-size: medium;*/
+    }
+
+    .MuiTableCell-root {
+        padding: 10px;
+    }
 }
 
-div .datatable {
-    border-radius: 40px;
-    padding: 20px;
-    box-shadow:  5px 5px 15px #d9d9d9,
-    -5px -5px 15px #ffffff;
-    font-family: Roboto,sans-serif;
-    font-size: 30px;
+@media (min-width:500px) {
+    .datatable-table {
+        display: inline-block;
+        padding: 20px;
+        /*width: 90%;*/
+        border-radius: 40px;
+    }
+
+    div .datatable {
+        border-radius: 40px;
+        padding: 20px;
+        box-shadow:  5px 5px 15px #d9d9d9,
+        -5px -5px 15px #ffffff;
+        font-family: Roboto,sans-serif;
+        font-size: 30px;
+        font-weight: 900;
+        /*font-size: medium;*/
+    }
+
 }
 
 div #deaths {
@@ -20,4 +49,20 @@ div #deaths {
 
 div #recovered {
     color: #00b894;
+}
+
+div #new-confirmed {
+    color: #2d3436;
+    font-weight: 900;
+    /*font-size: medium;*/
+}
+
+div #new-deaths {
+    color: #d63031;
+    font-weight: 900;
+}
+
+div #new-recovered {
+    color: #2d3436;
+    font-weight: 900;
 }

@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {Paper, Typography, Grid} from "@material-ui/core";
 import './DataContainers.css';
+import CircularProgress from "@material-ui/core/CircularProgress";
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 class DataContainers extends Component{
 
@@ -42,14 +44,9 @@ class DataContainers extends Component{
         }
     }
 
-    async getGlobalData() {
-
-    }
-
-
     render() {
-        if (this.state.loading) return <div>Loading...</div>;
-        if (this.state.loading) return <div>didn't get the Data</div>;
+        if (this.state.loading) return <CircularProgress color="secondary" />;
+        if (this.state.loading) return <CircularProgress color="secondary" />;
 
         console.log(this.state.global);
         return (
@@ -80,6 +77,66 @@ class DataContainers extends Component{
                         <div className={"data-box"}>
                             <div className={"data"} id={"deaths"}>
                                 {this.state.global.deaths}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/*USA DATA*/}
+                <div className={"box-container"}>
+                    <div className={"title-container"}>
+                        <div className={"title"}>USA</div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"}>Confirmed</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"confirmed"}>
+                                {this.state.country[2].confirmed}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Recovered</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"recovered"}>
+                                {this.state.country[2].recovered}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Deaths</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"deaths"}>
+                                {this.state.country[2].deaths}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/*INDIA DATA*/}
+                <div className={"box-container"}>
+                    <div className={"title-container"}>
+                        <div className={"title"}>INDIA</div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"}>Confirmed</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"confirmed"}>
+                                {this.state.country[3].confirmed}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Recovered</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"recovered"}>
+                                {this.state.country[3].recovered}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Deaths</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"deaths"}>
+                                {this.state.country[3].deaths}
                             </div>
                         </div>
                     </div>
@@ -140,65 +197,6 @@ class DataContainers extends Component{
                         <div className={"data-box"}>
                             <div className={"data"} id={"deaths"}>
                                 {this.state.country[1].deaths}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/*USA DATA*/}
-                <div className={"box-container"}>
-                    <div className={"title-container"}>
-                        <div className={"title"}>USA</div>
-                    </div>
-                    <div className={"data-container"}>
-                        <div className={"data-title"}>Confirmed</div>
-                        <div className={"data-box"}>
-                            <div className={"data"} id={"confirmed"}>
-                                {this.state.country[2].confirmed}
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"data-container"}>
-                        <div className={"data-title"} >Recovered</div>
-                        <div className={"data-box"}>
-                            <div className={"data"} id={"recovered"}>
-                                {this.state.country[2].recovered}
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"data-container"}>
-                        <div className={"data-title"} >Deaths</div>
-                        <div className={"data-box"}>
-                            <div className={"data"} id={"deaths"}>
-                                {this.state.country[2].deaths}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className={"box-container"}>
-                    <div className={"title-container"}>
-                        <div className={"title"}>INDIA</div>
-                    </div>
-                    <div className={"data-container"}>
-                        <div className={"data-title"}>Confirmed</div>
-                        <div className={"data-box"}>
-                            <div className={"data"} id={"confirmed"}>
-                                {this.state.country[3].confirmed}
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"data-container"}>
-                        <div className={"data-title"} >Recovered</div>
-                        <div className={"data-box"}>
-                            <div className={"data"} id={"recovered"}>
-                                {this.state.country[3].recovered}
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"data-container"}>
-                        <div className={"data-title"} >Deaths</div>
-                        <div className={"data-box"}>
-                            <div className={"data"} id={"deaths"}>
-                                {this.state.country[3].deaths}
                             </div>
                         </div>
                     </div>
