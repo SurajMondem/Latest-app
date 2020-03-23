@@ -45,10 +45,12 @@
 
 div #deaths {
     color: #d63031;
+    font-weight: 900;
 }
 
 div #recovered {
     color: #00b894;
+    font-weight: 900;
 }
 
 div #new-confirmed {

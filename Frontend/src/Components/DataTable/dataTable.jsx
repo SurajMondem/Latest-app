@@ -13,10 +13,6 @@ import './dataTable.css';
 
 class dataTable extends Component {
 
-    constructor(props){
-        super(props);
-    }
-
     state = {
         loading: true,
         content: [],

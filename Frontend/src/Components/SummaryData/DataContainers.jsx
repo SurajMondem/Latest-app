@@ -1,8 +1,6 @@
 import React, {Component} from "react";
-import {Paper, Typography, Grid} from "@material-ui/core";
 import './DataContainers.css';
 import CircularProgress from "@material-ui/core/CircularProgress";
-import ProgressBar from 'react-bootstrap/ProgressBar';
 
 class DataContainers extends Component{
 
@@ -24,8 +22,6 @@ class DataContainers extends Component{
         const urlCountries = "https://api.coronatracker.com/v2/analytics/country";
         const response2 = await fetch(urlCountries);
         var data2 = await response2.json();
-        var Names = [];
-        var uniqueData = [];
 
         const countrydata = [];
         //console.log("REACHED!!");
