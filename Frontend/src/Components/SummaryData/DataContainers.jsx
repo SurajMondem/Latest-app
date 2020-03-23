@@ -24,18 +24,15 @@ class DataContainers extends Component{
         var data2 = await response2.json();
 
         const countrydata = [];
-        //console.log("REACHED!!");
         if(data2) {
             for (let i = 0; i < data2.length; i++) {
                 if (data2[i].countryCode.toString() === "CN" ||
                     data2[i].countryCode.toString() === "US" ||
                     data2[i].countryCode.toString() === "IN" ||
                     data2[i].countryCode.toString() === "IT") {
-                    //console.log("DONE!!");
                     countrydata.push(data2[i]);
                 }
             }
-            console.log(countrydata);
             this.setState({global: data, country: countrydata, loading: false});
         }
     }
@@ -44,7 +41,6 @@ class DataContainers extends Component{
         if (this.state.loading) return <CircularProgress color="secondary" />;
         if (this.state.loading) return <CircularProgress color="secondary" />;
 
-        console.log(this.state.global);
         return (
             <React.Fragment>
                 {/*GLOBAL DATA*/}

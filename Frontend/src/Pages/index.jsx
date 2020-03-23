@@ -20,7 +20,7 @@ const LandingPage = () => {
             <Grid container justify={"center"} style={{display: "flex", position: "relative"}}>
                  <Grid item xs={12} container spacing={0} justify={"center"}>
                      <Grid item xs={12} style={{backgroundColor: "#212529"}}>
-                         <Paper style={{ padding: "15px",width: "100%", textAlign: "left",backgroundColor: "#212529", color: "white", margin: "0", boxShadow: "3px 3px 9px rgba(0,0,0,0.3)"}}>
+                         <Paper style={{ padding: "15px",width: "100%", textAlign: "center",backgroundColor: "#212529", color: "white", margin: "0", boxShadow: "3px 3px 9px rgba(0,0,0,0.3)"}}>
                              <Typography variant={"h5"} style={{display: "inline-block"}}> Corona Virus (Covid-19) Outbreak of World </Typography>
                              <div style={{display: "inline-block"}}>
                              </div>

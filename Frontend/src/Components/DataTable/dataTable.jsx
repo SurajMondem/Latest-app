@@ -25,7 +25,6 @@ class dataTable extends Component {
         const response = await fetch(url);
         let data = await response.json();
         let uniqueData = [];
-        console.log(data);
 
         for(let i = 0; i < data.length; i++) {
             let date = data[i].dateAsOf.split("T")[0];
@@ -34,8 +33,6 @@ class dataTable extends Component {
             data[i].timeAsOf = time.substring(0,5);
             uniqueData.push(data[i]);
         }
-
-        console.log(uniqueData);
 
         this.setState({content: data, loading: false });
     }
@@ -46,7 +43,6 @@ class dataTable extends Component {
 
         if (this.state.loading) return <CircularProgress color="secondary" />;
         if (this.state.loading) return <CircularProgress color="secondary" />;
-        console.log(this.state.content[1].countryName);
         return (
             <div className={"datatable-table"}>
                 <TableContainer className={"datatable"} component={Paper}>

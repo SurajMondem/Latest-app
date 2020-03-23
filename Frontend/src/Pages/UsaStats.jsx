@@ -43,14 +43,12 @@ class UsaStats extends Component{
                 }
             }
         }
-        console.log(countrydata);
 
         //USA STATES DATA
         const url = "https://covidtracking.com/api/states";
         const response = await fetch(url);
         let data = await response.json();
-        let uniqueData = [];
-        console.log(data);
+        // ADDING State names according to US CODES
         if (data) {
             for (let i = 0; i < data.length; i++) {
                 if (data[i].state.toString() === "AL")
@@ -345,7 +343,6 @@ class UsaStats extends Component{
 
             }
         }
-        console.log(data);
 
         this.setState({UsaStates: data, country: countrydata, loading: false});
 
@@ -363,9 +360,9 @@ class UsaStats extends Component{
                 <Grid container justify={"center"} style={{display: "flex", position: "relative"}}>
                     <Grid item xs={12} container spacing={0} justify={"center"}>
                         <Grid item xs={12} style={{backgroundColor: "#212529"}}>
-                            <Paper style={{ padding: "15px",width: "100%", textAlign: "left",backgroundColor: "#212529", color: "white", margin: "0", boxShadow: "3px 3px 9px rgba(0,0,0,0.3)"}}>
+                            <Paper style={{ padding: "15px",width: "100%", textAlign: "center",backgroundColor: "#212529", color: "white", margin: "0", boxShadow: "3px 3px 9px rgba(0,0,0,0.3)"}}>
                                 <Typography variant={"h5"} style={{display: "inline-block"}}> Corona Virus (Covid-19) Outbreak of USA </Typography>
-                                <Link to={"/"} style={{display: "inline-block", float: "right"}}> HOME </Link>
+                                <Link to={"/"} style={{display: "inline-block", float: "right"}}> World </Link>
                             </Paper>
                         </Grid>
                         <Grid container item xs={10} justify={"center"} style={{margin: "20px", textAlign: "center", backgroundColor: "white"}} >
