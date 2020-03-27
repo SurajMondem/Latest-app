@@ -33,6 +33,7 @@ class DataContainers extends Component{
                     countrydata.push(data2[i]);
                 }
             }
+            console.log(countrydata);
             this.setState({global: data, country: countrydata, loading: false});
         }
     }
@@ -82,7 +83,7 @@ class DataContainers extends Component{
                         <div className={"data-title"}>Confirmed</div>
                         <div className={"data-box"}>
                             <div className={"data"} id={"confirmed"}>
-                                {this.state.country[2].confirmed}
+                                {this.state.country[0].confirmed}
                             </div>
                         </div>
                     </div>
@@ -90,7 +91,7 @@ class DataContainers extends Component{
                         <div className={"data-title"} >Recovered</div>
                         <div className={"data-box"}>
                             <div className={"data"} id={"recovered"}>
-                                {this.state.country[2].recovered}
+                                {this.state.country[0].recovered}
                             </div>
                         </div>
                     </div>
@@ -98,7 +99,7 @@ class DataContainers extends Component{
                         <div className={"data-title"} >Deaths</div>
                         <div className={"data-box"}>
                             <div className={"data"} id={"deaths"}>
-                                {this.state.country[2].deaths}
+                                {this.state.country[0].deaths}
                             </div>
                         </div>
                     </div>
@@ -106,7 +107,7 @@ class DataContainers extends Component{
                 {/*INDIA DATA*/}
                 <div className={"box-container"}>
                     <div className={"title-container"}>
-                        <div className={"title"}>INDIA</div>
+                        <div className={"title"} style={{textTransform: "uppercase"}}>{this.state.country[3].countryName}</div>
                     </div>
                     <div className={"data-container"}>
                         <div className={"data-title"}>Confirmed</div>
@@ -136,37 +137,7 @@ class DataContainers extends Component{
                 {/*CHINA DATA*/}
                 <div className={"box-container"}>
                     <div className={"title-container"}>
-                        <div className={"title"}>CHINA</div>
-                    </div>
-                    <div className={"data-container"}>
-                        <div className={"data-title"} >Confirmed</div>
-                        <div className={"data-box"}>
-                            <div className={"data"} id={"confirmed"}>
-                                {this.state.country[0].confirmed}
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"data-container"}>
-                        <div className={"data-title"} >Recovered</div>
-                        <div className={"data-box"}>
-                            <div className={"data"} id={"recovered"}>
-                                {this.state.country[0].recovered}
-                            </div>
-                        </div>
-                    </div>
-                    <div className={"data-container"}>
-                        <div className={"data-title"} >Deaths</div>
-                        <div className={"data-box"}>
-                            <div className={"data"} id={"deaths"}>
-                                {this.state.country[0].deaths}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/*ITALY DATA*/}
-                <div className={"box-container"}>
-                    <div className={"title-container"}>
-                        <div className={"title"}>ITALY</div>
+                        <div className={"title"} style={{textTransform: "uppercase"}}>{this.state.country[1].countryName}</div>
                     </div>
                     <div className={"data-container"}>
                         <div className={"data-title"} >Confirmed</div>
@@ -189,6 +160,36 @@ class DataContainers extends Component{
                         <div className={"data-box"}>
                             <div className={"data"} id={"deaths"}>
                                 {this.state.country[1].deaths}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/*ITALY DATA*/}
+                <div className={"box-container"}>
+                    <div className={"title-container"}>
+                        <div className={"title"} style={{textTransform: "uppercase"}}>{this.state.country[2].countryName}</div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Confirmed</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"confirmed"}>
+                                {this.state.country[2].confirmed}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Recovered</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"recovered"}>
+                                {this.state.country[2].recovered}
+                            </div>
+                        </div>
+                    </div>
+                    <div className={"data-container"}>
+                        <div className={"data-title"} >Deaths</div>
+                        <div className={"data-box"}>
+                            <div className={"data"} id={"deaths"}>
+                                {this.state.country[2].deaths}
                             </div>
                         </div>
                     </div>

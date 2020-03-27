@@ -104,7 +104,7 @@ class IndiaStats extends Component{
                 </Grid>
                 <div className={"datatable-title"}>
                     <h2 className={"datatable-header"}>
-                        Confirmed Cases and Deaths by Country, Territory
+                        Confirmed Cases and Deaths by States
                     </h2>
                 </div>
                 <div className={"datatable-container"}>
