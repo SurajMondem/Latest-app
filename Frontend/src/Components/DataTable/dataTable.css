@@ -43,12 +43,17 @@
 
 }
 
-div #deaths {
-    color: #d63031;
+div #nconfirmed {
     font-weight: 900;
 }
 
-div #recovered {
+div #ndeaths {
+    background-color: #ff5e57;
+    color: white;
+    font-weight: 900;
+}
+
+div #nrecovered {
     color: #00b894;
     font-weight: 900;
 }

@@ -19,20 +19,21 @@ class DataContainers extends Component{
 
 
         // FETCH COUNTRY SUMMARY
-        const urlCountries = "https://api.coronatracker.com/v2/analytics/country";
+        const urlCountries = "https://api.coronatracker.com/v3/stats/worldometer/country";
         const response2 = await fetch(urlCountries);
         var data2 = await response2.json();
 
         const countrydata = [];
         if(data2) {
             for (let i = 0; i < data2.length; i++) {
-                if (data2[i].countryCode.toString() === "CN" ||
-                    data2[i].countryCode.toString() === "US" ||
-                    data2[i].countryCode.toString() === "IN" ||
-                    data2[i].countryCode.toString() === "IT") {
+                if (data2[i].countryCode === "CN" ||
+                    data2[i].countryCode === "US" ||
+                    data2[i].countryCode === "IN" ||
+                    data2[i].countryCode === "IT") {
                     countrydata.push(data2[i]);
                 }
             }
+            console.log('PASS!!!');
             console.log(countrydata);
             this.setState({global: data, country: countrydata, loading: false});
         }
@@ -52,7 +53,7 @@ class DataContainers extends Component{
                     <div className={"data-container-global"}>
                         <div className={"data-title"} >Confirmed</div>
                         <div className={"data-box"}>
-                            <div className={"data"} id={"confirmed"}>
+                            <div className={"data"}>
                                 {this.state.global.confirmed}
                             </div>
                         </div>
@@ -60,7 +61,7 @@ class DataContainers extends Component{
                     <div className={"data-container-global"}>
                         <div className={"data-title"} >Recovered</div>
                         <div className={"data-box"}>
-                            <div className={"data"} id={"recovered"}>
+                            <div className={"data"} style={{color: "#00b894"}}>
                                 {this.state.global.recovered}
                             </div>
                         </div>
@@ -68,7 +69,7 @@ class DataContainers extends Component{
                     <div className={"data-container-global"}>
                         <div className={"data-title"} >Deaths</div>
                         <div className={"data-box"}>
-                            <div className={"data"} id={"deaths"}>
+                            <div className={"data"} style={{color: "#d63031"}}>
                                 {this.state.global.deaths}
                             </div>
                         </div>
@@ -77,29 +78,29 @@ class DataContainers extends Component{
                 {/*USA DATA*/}
                 <div className={"box-container"}>
                     <div className={"title-container"}>
-                        <div className={"title"}>USA</div>
+                        <div className={"title"} style={{textTransform: "uppercase"}}>{this.state.country[0].country}</div>
                     </div>
                     <div className={"data-container"}>
                         <div className={"data-title"}>Confirmed</div>
                         <div className={"data-box"}>
-                            <div className={"data"} id={"confirmed"}>
-                                {this.state.country[0].confirmed}
+                            <div className={"data"}>
+                                {this.state.country[0].totalConfirmed}
                             </div>
                         </div>
                     </div>
                     <div className={"data-container"}>
                         <div className={"data-title"} >Recovered</div>
                         <div className={"data-box"}>
-                            <div className={"data"} id={"recovered"}>
-                                {this.state.country[0].recovered}
+                            <div className={"data"} style={{color: "#00b894"}}>
+                                {this.state.country[0].totalRecovered}
                             </div>
                         </div>
                     </div>
                     <div className={"data-container"}>
                         <div className={"data-title"} >Deaths</div>
                         <div className={"data-box"}>
-                            <div className={"data"} id={"deaths"}>
-                                {this.state.country[0].deaths}
+                            <div className={"data"} style={{color: "#d63031"}}>
+                                {this.state.country[0].totalDeaths}
                             </div>
                         </div>
                     </div>
@@ -107,29 +108,29 @@ class DataContainers extends Component{
                 {/*INDIA DATA*/}
                 <div className={"box-container"}>
                     <div className={"title-container"}>
-                        <div className={"title"} style={{textTransform: "uppercase"}}>{this.state.country[3].countryName}</div>
+                        <div className={"title"} style={{textTransform: "uppercase"}}>{this.state.country[3].country}</div>
                     </div>
                     <div className={"data-container"}>
                         <div className={"data-title"}>Confirmed</div>
                         <div className={"data-box"}>
-                            <div className={"data"} id={"confirmed"}>
-                                {this.state.country[3].confirmed}
+                            <div className={"data"}>
+                                {this.state.country[3].totalConfirmed}
                             </div>
                         </div>
                     </div>
                     <div className={"data-container"}>
                         <div className={"data-title"} >Recovered</div>
                         <div className={"data-box"}>
-                            <div className={"data"} id={"recovered"}>
-                                {this.state.country[3].recovered}
+                            <div className={"data"} style={{color: "#00b894"}}>
+                                {this.state.country[3].totalRecovered}
                             </div>
                         </div>
                     </div>
                     <div className={"data-container"}>
                         <div className={"data-title"} >Deaths</div>
                         <div className={"data-box"}>
-                            <div className={"data"} id={"deaths"}>
-                                {this.state.country[3].deaths}
+                            <div className={"data"} style={{color: "#d63031"}}>
+                                {this.state.country[3].totalDeaths}
                             </div>
                         </div>
                     </div>
@@ -137,29 +138,29 @@ class DataContainers extends Component{
                 {/*CHINA DATA*/}
                 <div className={"box-container"}>
                     <div className={"title-container"}>
-                        <div className={"title"} style={{textTransform: "uppercase"}}>{this.state.country[1].countryName}</div>
+                        <div className={"title"} style={{textTransform: "uppercase"}}>{this.state.country[1].country}</div>
                     </div>
                     <div className={"data-container"}>
                         <div className={"data-title"} >Confirmed</div>
                         <div className={"data-box"}>
-                            <div className={"data"} id={"confirmed"}>
-                                {this.state.country[1].confirmed}
+                            <div className={"data"}>
+                                {this.state.country[1].totalConfirmed}
                             </div>
                         </div>
                     </div>
                     <div className={"data-container"}>
                         <div className={"data-title"} >Recovered</div>
                         <div className={"data-box"}>
-                            <div className={"data"} id={"recovered"}>
-                                {this.state.country[1].recovered}
+                            <div className={"data"} style={{color: "#00b894"}}>
+                                {this.state.country[1].totalRecovered}
                             </div>
                         </div>
                     </div>
                     <div className={"data-container"}>
                         <div className={"data-title"} >Deaths</div>
                         <div className={"data-box"}>
-                            <div className={"data"} id={"deaths"}>
-                                {this.state.country[1].deaths}
+                            <div className={"data"} style={{color: "#d63031"}}>
+                                {this.state.country[1].totalDeaths}
                             </div>
                         </div>
                     </div>
@@ -167,29 +168,29 @@ class DataContainers extends Component{
                 {/*ITALY DATA*/}
                 <div className={"box-container"}>
                     <div className={"title-container"}>
-                        <div className={"title"} style={{textTransform: "uppercase"}}>{this.state.country[2].countryName}</div>
+                        <div className={"title"} style={{textTransform: "uppercase"}}>{this.state.country[2].country}</div>
                     </div>
                     <div className={"data-container"}>
                         <div className={"data-title"} >Confirmed</div>
                         <div className={"data-box"}>
-                            <div className={"data"} id={"confirmed"}>
-                                {this.state.country[2].confirmed}
+                            <div className={"data"}>
+                                {this.state.country[2].totalConfirmed}
                             </div>
                         </div>
                     </div>
                     <div className={"data-container"}>
                         <div className={"data-title"} >Recovered</div>
                         <div className={"data-box"}>
-                            <div className={"data"} id={"recovered"}>
-                                {this.state.country[2].recovered}
+                            <div className={"data"} style={{color: "#00b894"}}>
+                                {this.state.country[2].totalRecovered}
                             </div>
                         </div>
                     </div>
                     <div className={"data-container"}>
                         <div className={"data-title"} >Deaths</div>
                         <div className={"data-box"}>
-                            <div className={"data"} id={"deaths"}>
-                                {this.state.country[2].deaths}
+                            <div className={"data"} style={{color: "#d63031"}}>
+                                {this.state.country[2].totalDeaths}
                             </div>
                         </div>
                     </div>

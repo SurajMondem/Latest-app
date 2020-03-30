@@ -29,14 +29,14 @@ class IndiaStats extends Component{
 
     async componentDidMount() {
         //FETCH INDIA SUMMARY
-        const urlindia = "https://api.coronatracker.com/v2/analytics/country";
+        const urlindia = "https://api.coronatracker.com/v3/stats/worldometer/country";
         const response2 = await fetch(urlindia);
         var data2 = await response2.json();
 
         const countrydata = [];
         if (data2) {
             for (let i = 0; i < data2.length; i++) {
-                if (data2[i].countryCode.toString() === "IN")
+                if (data2[i].countryCode === "IN")
                 {
                     countrydata.push(data2[i]);
                 }
@@ -78,7 +78,7 @@ class IndiaStats extends Component{
                                    <div className={"data-title"}>Confirmed</div>
                                    <div className={"data-box"}>
                                        <div className={"data"} id={"confirmed"}>
-                                           {this.state.country[0].confirmed}
+                                           {this.state.country[0].totalConfirmed}
                                        </div>
                                    </div>
                                </div>
@@ -86,7 +86,7 @@ class IndiaStats extends Component{
                                    <div className={"data-title"} >Recovered</div>
                                    <div className={"data-box"}>
                                        <div className={"data"} id={"recovered"}>
-                                           {this.state.country[0].recovered}
+                                           {this.state.country[0].totalRecovered}
                                        </div>
                                    </div>
                                </div>
@@ -94,7 +94,7 @@ class IndiaStats extends Component{
                                    <div className={"data-title"} >Deaths</div>
                                    <div className={"data-box"}>
                                        <div className={"data"} id={"deaths"}>
-                                           {this.state.country[0].deaths}
+                                           {this.state.country[0].totalDeaths}
                                        </div>
                                    </div>
                                </div>
