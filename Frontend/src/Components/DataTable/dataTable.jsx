@@ -87,7 +87,6 @@ class dataTable extends Component {
                 </TableContainer>
             </div>
         );
-//(Math.round(((row["totalDeaths"]/row["totalConfirmed"])*100) * 100) / 100).toFixed(2);
     };
 }
 export default dataTable;

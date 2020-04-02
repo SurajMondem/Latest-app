@@ -1,28 +1,28 @@
 import React, {Component} from "react";
 import './DataContainers.css';
 import CircularProgress from "@material-ui/core/CircularProgress";
+import axios from 'axios';
 
 class DataContainers extends Component{
 
     state = {
         loading: true,
-        global: null,
         country: null,
+        global: null,
     };
 
     async componentDidMount() {
-        // FETCH GLOBAL DATA
-        const url = "https://api.coronatracker.com/v2/stats";
-        const response = await fetch(url);
-        const data = await response.json();
-        // this.setState({ global: data, loading: false });
 
+        const [global] = await Promise.all([
+            //axios.get('https://api.coronatracker.com/v3/stats/worldometer/country'),
+            axios.get('https://api.coronatracker.com/v3/stats/worldometer/global')
+        ]);
+        const data = global.data;
 
         // FETCH COUNTRY SUMMARY
         const urlCountries = "https://api.coronatracker.com/v3/stats/worldometer/country";
         const response2 = await fetch(urlCountries);
-        var data2 = await response2.json();
-
+        let data2 = await response2.json();
         const countrydata = [];
         if(data2) {
             for (let i = 0; i < data2.length; i++) {
@@ -33,9 +33,7 @@ class DataContainers extends Component{
                     countrydata.push(data2[i]);
                 }
             }
-            console.log('PASS!!!');
-            console.log(countrydata);
-            this.setState({global: data, country: countrydata, loading: false});
+           this.setState({country: data2,global: data, loading: false});
         }
     }
 
@@ -54,7 +52,7 @@ class DataContainers extends Component{
                         <div className={"data-title"} >Confirmed</div>
                         <div className={"data-box"}>
                             <div className={"data"}>
-                                {this.state.global.confirmed}
+                                {this.state.global.totalConfirmed}
                             </div>
                         </div>
                     </div>
@@ -62,7 +60,7 @@ class DataContainers extends Component{
                         <div className={"data-title"} >Recovered</div>
                         <div className={"data-box"}>
                             <div className={"data"} style={{color: "#00b894"}}>
-                                {this.state.global.recovered}
+                                {this.state.global.totalRecovered}
                             </div>
                         </div>
                     </div>
@@ -70,7 +68,7 @@ class DataContainers extends Component{
                         <div className={"data-title"} >Deaths</div>
                         <div className={"data-box"}>
                             <div className={"data"} style={{color: "#d63031"}}>
-                                {this.state.global.deaths}
+                                {this.state.global.totalDeaths}
                             </div>
                         </div>
                     </div>
