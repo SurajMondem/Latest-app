@@ -33,7 +33,7 @@ class DataContainers extends Component{
                     countrydata.push(data2[i]);
                 }
             }
-           this.setState({country: data2,global: data, loading: false});
+           this.setState({country: countrydata,global: data, loading: false});
         }
     }
 
